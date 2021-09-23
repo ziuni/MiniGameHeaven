@@ -15,6 +15,5 @@ class MainActivity : AppCompatActivity() {
         bell_button.setOnClickListener {
             Toast.makeText(this, "눌림", Toast.LENGTH_SHORT).show()
         }
-
     }
 }
