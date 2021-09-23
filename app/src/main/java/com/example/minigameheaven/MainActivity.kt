@@ -2,28 +2,36 @@ package com.example.minigameheaven
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        getWindow().setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main)
 
-        var screenWidth = getWindowManager().getDefaultDisplay()
+        //선언
+        var i = 0
+        var bell_button = findViewById<ImageButton>(R.id.bell_button_1)
+        var grape_change_button = findViewById<ImageView>(R.id.image_grape)
+        //선언END
 
-        var bell_button = findViewById<ImageButton>(R.id.bell_button)
-
+        
+        //버튼을 누른다면 이미지를 변경
         bell_button.setOnClickListener {
             Toast.makeText(this, "눌림", Toast.LENGTH_SHORT).show()
+            i  = 1-i
+            if(i==0){
+                grape_change_button.setImageResource(R.drawable.grape)
+            }else{
+                grape_change_button.setImageResource(R.drawable.green_grape)
+            }
         }
     }
 }

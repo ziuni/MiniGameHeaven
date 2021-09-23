@@ -6,49 +6,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
+<!-- 1번부터(맨 왼쪽 위) 시계방향으로 1~4  -->
     <ImageButton
-        android:id="@+id/bell_button"
+        android:id="@+id/bell_button_1"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="0dp"
         android:background="@drawable/button_shape_circle"
-        android:layout_below="@id/a"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bell" />
+        android:src="@drawable/bell"
+        />
 
     <ImageButton
+        android:id="@+id/bell_button_2"
+        android:layout_toRightOf="@id/bell_button_1"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_gravity="center"
         android:layout_marginStart="100dp"
         android:layout_marginLeft="0dp"
-        android:layout_toEndOf="@+id/bell_button"
-        android:layout_toRightOf="@id/bell_button"
         android:background="@drawable/button_shape_circle"
-        android:scaleType="fitCenter"
         android:src="@drawable/bell" />
 
+    <!-- 카드 놓는 구역. height는 426dp -->
+    <LinearLayout
+        android:id="@+id/card_ground"
+        android:layout_below="@id/bell_button_1"
+        android:layout_width="wrap_content"
+        android:layout_height="426dp">
+        <ImageView
+            android:id="@+id/image_grape"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_shape_circle"
+            android:src="@drawable/grape" />
+
+    </LinearLayout>
+
+
     <ImageButton
-        android:id="@+id/a"
+        android:id="@+id/bell_button_3"
+        android:layout_below="@id/card_ground"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="-150dp"
+        android:layout_marginStart="5dp"
         android:layout_marginLeft="0dp"
-        android:layout_toEndOf="@+id/bell_button"
         android:background="@drawable/button_shape_circle"
         android:scaleType="fitCenter"
         android:src="@drawable/bell" />
 
     <ImageButton
-        android:id="@+id/image_apple"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:id="@+id/bell_button_4"
+        android:layout_toRightOf="@id/bell_button_3"
+        android:layout_below="@id/card_ground"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="0dp"
         android:background="@drawable/button_shape_circle"
-        android:src="@drawable/apple" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/bell" />
 </RelativeLayout>
 
