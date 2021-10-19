@@ -1,5 +1,6 @@
 package com.example.minigameheaven
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import kotlin.concurrent.timer
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +34,15 @@ class MainActivity : AppCompatActivity() {
             }else{
                 grape_change_button.setImageResource(R.drawable.green_grape)
             }
+        }
+
+        var second : Int = 0
+        timer(period = 1000, initialDelay = 1000){
+            second++
+            runOnUiThread {
+                Toast.makeText(this@MainActivity, "" + second, Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 }
