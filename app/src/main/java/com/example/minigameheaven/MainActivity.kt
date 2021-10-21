@@ -41,6 +41,12 @@ class MainActivity : AppCompatActivity() {
             second++
             runOnUiThread {
                 Toast.makeText(this@MainActivity, "" + second, Toast.LENGTH_SHORT).show()
+                i  = 1-i
+                if(i==0){
+                    grape_change_button.setImageResource(R.drawable.grape)
+                }else{
+                    grape_change_button.setImageResource(R.drawable.green_grape)
+                }
             }
 
         }
