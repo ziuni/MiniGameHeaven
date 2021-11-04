@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
     2. 정해진 방향으로 돌아가면서, 자기 차례가 되면 카드 한 장을 뒤집어서 앞에 놓는다.
     (만약 다른 카드가 펼쳐져 있으면 그 위에 놓는다. 카드를 뒤집을 때는 상대방이 먼저 볼 수 있도록 바깥쪽으로 뒤집는다.)
     3. 맨 위의 펼쳐진 모든 카드 중에서, 같은 종류의 과일이 정확하게 5개가 되어 있는 경우, 종을 친다.
-    4. 가장 빨리 종을 친 사람이 펼쳐진 모든 카드를 가져간다.
-    5. 과일이 5개가 되어 있지 않은 경우 종을 치면, 벌칙으로 카드 한 장을 종 밑에 깔거나 상대방에게 카드 1장을 준다.
+    4. 가장 빨리 종을 친 사람이 펼쳐진 모든 카드를 가져간다. //종친사람은 화면에 보이는 카드를 모두 가져감
+    5. 과일이 5개가 되어 있지 않은 경우 종을 치면, 벌칙으로 카드 한 장을 종 밑에 깔거나 상대방에게 카드 1장을 준다.//자신을 제외한 모두에게 카드 1장씩 나눠줌
     6. 카드를 모두 가져간 사람이 승자가 된다.
-
-    * 카드 수 정해놓고
+    * 카드 수 정해놓고 4명씩 14장 총 56장(14*4)_1개 5장, 2개 3장, 3개 3장, 4개 2장, 5개 1장
+    //으악! 늦었다~ 닿을 수 없는 존재다...
     * */
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
 
         var cardReverse:Int = 0
         var bellButton = arrayOf(
-            findViewById<ImageButton>(R.id.bell_button_1),
-            findViewById<ImageButton>(R.id.bell_button_2),
-            findViewById<ImageButton>(R.id.bell_button_3),
-            findViewById<ImageButton>(R.id.bell_button_4),
+                findViewById<ImageButton>(R.id.bell_button_1),
+                findViewById<ImageButton>(R.id.bell_button_2),
+                findViewById<ImageButton>(R.id.bell_button_3),
+                findViewById<ImageButton>(R.id.bell_button_4),
         )
 
         //카드 위치
@@ -52,9 +52,9 @@ class MainActivity : AppCompatActivity() {
         var cardLoc4 = findViewById<ImageView>(R.id.card_loc_4)
 
         var YcardImgResArr:Array<Int> = arrayOf(R.drawable.card_1, R.drawable.card_2,
-            R.drawable.card_3, R.drawable.card_4, R.drawable.card_5keycard)
+                R.drawable.card_3, R.drawable.card_4, R.drawable.card_5keycard)
         var PcardImgResArr:Array<Int> = arrayOf(R.drawable.card_1_pink, R.drawable.card_2_pink,
-            R.drawable.card_3_pink, R.drawable.card_4_pink, R.drawable.card_5keycard_pink)
+                R.drawable.card_3_pink, R.drawable.card_4_pink, R.drawable.card_5keycard_pink)
 
         //임시
         //카드가 어떤 종류인지?를 정수형으로  순서대로 위치 1,2,3,4
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "5개 NO!", Toast.LENGTH_SHORT).show()
             }
         }
-        
+
         //임시
         bellButton[0].setOnClickListener {
             bellDown()
@@ -135,10 +135,9 @@ class MainActivity : AppCompatActivity() {
             bellDown()
         }
         //벨 누르기 END
-
     }
 }
 
-private operator fun Int.set(i: Int, value: Int) {
-
-}
+//private operator fun Int.set(i: Int, value: Int) {
+//
+//}
